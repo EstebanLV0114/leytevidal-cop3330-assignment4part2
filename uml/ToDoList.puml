@@ -1,0 +1,100 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class TodoList {
+    main()
+    start()
+}
+
+class TodoListController {
+    Button clearList
+    TextField titleField
+    Button setName
+    TextField pathBox
+    Button addAction
+    TextField dateBox
+    TextField descBox
+    CheckBox completeBox
+    Button saveButton
+    Button updateAction
+    Button removeAction
+    ListView<Item>: itemShow
+    Button sortDate
+    Button showAll
+    Button showComplete
+    Button showIncomplete
+    Button loadButton
+    ItemList itemList
+    ObservableList<Item> filter
+    addActionClicked()
+    removeActionClicked()
+    saveButtonClicked()
+    loadButtonClicked()
+    updateButtonClicked()
+    showAllClicked()
+    showCompleteClicked()
+    showIncompleteClicked()
+    setNameClicked()
+    addToList()
+    removeFromList()
+    updateItem()
+    showComplete()
+    showIncomplete()
+    setTitle()
+    save()
+    load()
+    initialize()
+    ref()
+    sortDateClicked()
+    clearClicked()
+    clear()
+}
+
+class Item {
+    String desc
+    String date
+    Boolean completion
+    Item()
+    getDesc()
+    setDesc()
+    getDate()
+    setDate()
+    isComplete()
+    setComplete()
+    toString()
+}
+
+class ItemList {
+    String title
+    ObservableList<Item>: items
+    ItemList()
+    getTitle()
+    setTitle()
+    getItems()
+    setItems()
+    addItem()
+    dateSort()
+}
+
+class SaveNLoad {
+    saveList()
+    loadList()
+}
+
+class checkInput {
+    isNull()
+    checkDesc()
+    checkDate()
+    checkPath()
+}
+
+javafx.Application <|- TodoList
+TodoList <-- TodoListController
+TodoListController <- ItemList
+TodoListController <- Item
+TodoListController <- SaveNLoad
+TodoListController <- checkInput
+ItemList <- Item
+SaveNLoad <- ItemList
+
+@enduml
